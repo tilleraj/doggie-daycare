@@ -1,3 +1,9 @@
+# Doggie Daycare
+This project is an exercise in using React, multiple components, and Prop Typing
+
+## Screenshot
+![A picture of the page showing both Dogs and Employees in their respective container components](https://raw.githubusercontent.com/tilleraj/doggie-daycare/master/assets/images/screenshots/screenshot01.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
