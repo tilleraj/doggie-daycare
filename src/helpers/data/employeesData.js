@@ -11,7 +11,6 @@ const getEmployees = () => new Promise((resolve, reject) => {
         response.data[fbKey].id = fbKey;
         employees.push(response.data[fbKey]);
       });
-      console.error('employees from employeesData', employees);
       resolve(employees);
     })
     .catch(error => reject(error));
