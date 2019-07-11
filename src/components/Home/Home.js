@@ -7,6 +7,7 @@ import DogPen from '../DogPen/DogPen';
 import employeesData from '../../helpers/data/employeesData';
 import StaffRoom from '../StaffRoom/StaffRoom';
 import walksData from '../../helpers/data/walksData';
+import WalkContainer from '../WalkContainer/WalkContainer';
 
 import './Home.scss';
 
@@ -40,12 +41,14 @@ class Home extends React.Component {
   render() {
     const { dogs } = this.state;
     const { employees } = this.state;
+    const { walks } = this.state;
 
     return (
       <div className="App">
         <div>Doggie Daycare</div>
         <DogPen dogs={dogs} />
         <StaffRoom employees={employees} />
+        <WalkContainer walks={walks} dogs={dogs} employees={employees} />
       </div>
     );
   }

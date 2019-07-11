@@ -11,7 +11,6 @@ const getDogs = () => new Promise((resolve, reject) => {
         response.data[fbKey].id = fbKey;
         dogs.push(response.data[fbKey]);
       });
-      console.error('dogs from dogsData', dogs);
       resolve(dogs);
     })
     .catch(error => reject(error));
