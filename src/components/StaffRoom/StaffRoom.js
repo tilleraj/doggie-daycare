@@ -18,7 +18,8 @@ class StaffRoom extends React.Component {
       <Employee key={employee.id} employee={employee} />
     ));
     return (
-      <div className="container">
+      <div className="col-12 col-md-6 col-xl-4">
+        <h3>Staff</h3>
       <div className="row">
         {makeEmployees}
       </div>

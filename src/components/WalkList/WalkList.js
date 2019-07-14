@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import Walk from '../Walk/Walk';
 import walkShape from '../../helpers/propz/walkShape';
 
-import './WalkContainer.scss';
+import './WalkList.scss';
 
-class WalkContainer extends React.Component {
+class WalkList extends React.Component {
   static propTypes = {
     walks: PropTypes.arrayOf(walkShape.walkShape),
   }
@@ -36,7 +36,8 @@ class WalkContainer extends React.Component {
     ));
 
     return (
-      <div className="container">
+      <div className="col-12 col-md-6 col-xl-4">
+        <h3>Walks</h3>
         <div className="row">
           {makeWalks}
         </div>
@@ -45,4 +46,4 @@ class WalkContainer extends React.Component {
   }
 }
 
-export default WalkContainer;
+export default WalkList;

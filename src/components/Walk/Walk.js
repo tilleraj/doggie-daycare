@@ -12,7 +12,7 @@ class Walk extends React.Component {
   render() {
     const { walk } = this.props;
     return (
-      <div className="Walk d-flex col-12 col-sm-6 col-md-4">
+      <div className="Walk d-flex col-12 col-sm-6">
         <div className="card mb-4 w-100">
           <div className="card-body d-flex justify-content-end flex-column">
             <p className="card-title">{walk.dogName}</p>
