@@ -7,7 +7,7 @@ import DogPen from '../DogPen/DogPen';
 import employeesData from '../../helpers/data/employeesData';
 import StaffRoom from '../StaffRoom/StaffRoom';
 import walksData from '../../helpers/data/walksData';
-import WalkContainer from '../WalkContainer/WalkContainer';
+import WalkList from '../WalkList/WalkList';
 
 import './Home.scss';
 
@@ -44,11 +44,15 @@ class Home extends React.Component {
     const { walks } = this.state;
 
     return (
-      <div className="App">
-        <div>Doggie Daycare</div>
-        <DogPen dogs={dogs} />
-        <StaffRoom employees={employees} />
-        <WalkContainer walks={walks} dogs={dogs} employees={employees} />
+      <div className="Home">
+        <h1>Doggie Daycare</h1>
+        <div className="container">
+        <div className="row">
+          <DogPen dogs={dogs} />
+          <StaffRoom employees={employees} />
+          <WalkList walks={walks} dogs={dogs} employees={employees} />
+        </div>
+        </div>
       </div>
     );
   }

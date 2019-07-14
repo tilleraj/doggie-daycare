@@ -18,7 +18,8 @@ class DogPen extends React.Component {
       <Dog key={dog.id} dog={dog} />
     ));
     return (
-      <div className="container">
+      <div className="col-12 col-md-6 col-xl-4">
+        <h3>Dogs</h3>
         <div className="row">
           {makeDogs}
         </div>
