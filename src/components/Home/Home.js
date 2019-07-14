@@ -1,6 +1,13 @@
 import React from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import {
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+} from 'reactstrap';
 
 import dogsData from '../../helpers/data/dogsData';
 import DogPen from '../DogPen/DogPen';
@@ -16,6 +23,9 @@ class Home extends React.Component {
     dogs: [],
     employees: [],
     walks: [],
+    dogName: '',
+    employeeName: '',
+    walkDate: '',
   }
 
   getEmployees = () => {
@@ -38,20 +48,76 @@ class Home extends React.Component {
     this.getWalks();
   }
 
+  dogNameChange = (e) => {
+    e.preventDefault();
+    this.setState({ dogName: e.target.value });
+  }
+
+  employeeNameChange = (e) => {
+    e.preventDefault();
+    this.setState({ employeeName: e.target.value });
+  }
+
+  walkDateChange = (e) => {
+    e.preventDefault();
+    this.setState({ walkDate: e.target.value });
+  }
+
+  // saveWalk = (walkName) => {
+  //   const newWalk = { fishes: { ...this.state.fishOrder }, name: walkName };
+  //   walksData.postWalk(newWalk)
+  //     .then(() => {
+  //       this.setState({ fishOrder: {} });
+  //       this.getOrders();
+  //     })
+  //     .catch(error => console.error('error in the post order', error));
+  // }
+
   render() {
     const { dogs } = this.state;
     const { employees } = this.state;
     const { walks } = this.state;
+    const dogNames = this.state.dogs.map(dog => <option>{dog.name}</option>);
+    const employeeNames = this.state.employees.map(employee => <option>{employee.name}</option>);
 
     return (
       <div className="Home">
         <h1>Doggie Daycare</h1>
         <div className="container">
-        <div className="row">
-          <DogPen dogs={dogs} />
-          <StaffRoom employees={employees} />
-          <WalkList walks={walks} dogs={dogs} employees={employees} />
-        </div>
+          <div className="row">
+            <div className="col-12 col-md-8 offset-md-2 d-flex justify-content-center">
+              <Form inline>
+                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                  <Label for="dogSelect" className="mr-sm-2">Dog</Label>
+                  <Input type="select" name="select" id="dogSelect" onChange={this.dogNameChange}>
+                    <option value="" disabled selected>Select</option>
+                    {dogNames}
+                  </Input>
+                </FormGroup>
+                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                  <Label for="employeeSelect" className="mr-sm-2">Employee</Label>
+                  <Input type="select" name="select" id="employeeSelect" onChange={this.employeeNameChange}>
+                    <option value="" disabled selected>Select</option>
+                    {employeeNames}
+                  </Input>
+                </FormGroup>
+                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                  <Label for="walkDate" className="mr-sm-2">Date</Label>
+                  <Input
+                    type="date"
+                    name="date"
+                    id="walkDate"
+                    placeholder="01/01/2001"
+                    onChange={this.walkDateChange}
+                  />
+                </FormGroup>
+                <Button onClick={this.saveWalk}>Create Walk</Button>
+              </Form>
+            </div>
+            <DogPen dogs={dogs} />
+            <StaffRoom employees={employees} />
+            <WalkList walks={walks} dogs={dogs} employees={employees} />
+          </div>
         </div>
       </div>
     );
